@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/odontologos")
 public class OdontologoController {
     @Autowired
-    private OdontologoService odontologoService;
+     OdontologoService odontologoService;
 
     @PostMapping()
     public ResponseEntity<Odontologo> registrarOdontologo(@RequestBody Odontologo odontologo) {
@@ -60,7 +60,15 @@ public class OdontologoController {
     public ResponseEntity<List<Odontologo>> buscarTodos(){
         return ResponseEntity.ok(odontologoService.buscarTodos());
     }
-
-
+/*
+    @GetMapping("buscarPorNombre/{nombre}")
+    public ResponseEntity<Odontologo> traerOdontologoPorNombre(@PathVariable String nombre) {
+        Odontologo odontologo = odontologoService.buscarOdontologoPorNombre(nombre);
+        if (odontologo != null) {
+            return ResponseEntity.ok(odontologo);
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+    }*/
 
 }

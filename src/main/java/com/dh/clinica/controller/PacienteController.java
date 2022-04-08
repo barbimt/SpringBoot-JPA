@@ -1,11 +1,14 @@
 package com.dh.clinica.controller;
 
+import com.dh.clinica.model.Odontologo;
 import com.dh.clinica.model.Paciente;
 import com.dh.clinica.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/pacientes")
@@ -18,6 +21,10 @@ public class PacienteController {
 
         return ResponseEntity.ok(pacienteService.guardar(paciente));
 
+    }
+    @GetMapping
+    public ResponseEntity<List<Paciente>> buscarTodos(){
+        return ResponseEntity.ok(pacienteService.buscarTodos());
     }
 
     @GetMapping("/{id}")

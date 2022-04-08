@@ -21,6 +21,7 @@ window.addEventListener('load', function () {
                       provincia: document.querySelector('#provincia').value
                   }
               };
+              console.log(formData)
 
         //invocamos utilizando la función fetch la API peliculas con el método POST que guardará
         //la película que enviaremos en formato JSON
@@ -77,7 +78,7 @@ window.addEventListener('load', function () {
         let pathname = window.location.pathname;
         if(pathname === "/"){
             document.querySelector(".nav .nav-item a:first").addClass("active");
-        } else if (pathname == "/pacienteList.html") {
+        } else if (pathname == "/pacientes.html") {
             document.querySelector(".nav .nav-item a:last").addClass("active");
         }
     })();

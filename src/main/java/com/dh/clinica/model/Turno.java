@@ -1,6 +1,7 @@
 package com.dh.clinica.model;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.util.Date;
 
 @Entity
@@ -17,15 +18,33 @@ public class Turno {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "odontologo_id")
     private Odontologo odontologo;
-    private Date date;
+    private Date fecha;
+    private Time hora;
 
     public Turno() {
     }
 
-    public Turno(Paciente paciente, Odontologo odontologo, Date date) {
+    public Turno(Paciente paciente, Odontologo odontologo, Date fecha, Time hora) {
         this.paciente = paciente;
         this.odontologo = odontologo;
-        this.date = date;
+        this.fecha = fecha;
+        this.hora = hora;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Time getHora() {
+        return hora;
+    }
+
+    public void setHora(Time hora) {
+        this.hora = hora;
     }
 
     public Integer getId() {
@@ -52,13 +71,6 @@ public class Turno {
         this.odontologo = odontologo;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     @Override
     public String toString() {
@@ -66,7 +78,8 @@ public class Turno {
                 "id=" + id +
                 ", paciente=" + paciente +
                 ", odontologo=" + odontologo +
-                ", date=" + date +
+                ", fecha=" + fecha +
+                ", hora=" + hora +
                 '}';
     }
 }

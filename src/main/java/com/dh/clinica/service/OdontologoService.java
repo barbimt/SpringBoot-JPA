@@ -10,18 +10,22 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class OdontologoService {
-
-    private final OdontologoRepository odontologoRepository;
-
     @Autowired
+     OdontologoRepository odontologoRepository;
+
     public OdontologoService(OdontologoRepository odontologoRepository) {
         this.odontologoRepository = odontologoRepository;
     }
+
 
     public Odontologo registrarOdontologo(Odontologo odontologo) {
         return odontologoRepository.save(odontologo);
 
     }
+/*
+    public Odontologo buscarOdontologoPorNombre(String nombre){
+        return odontologoRepository.buscarOdontologoPorNombre(nombre).get();
+    }*/
 
     public void eliminar(Integer id) {
         odontologoRepository.deleteById(id);

@@ -16,6 +16,7 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private String dni;
+    private String email;
     private Date fechaIngreso;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "domicilio_id")
@@ -27,22 +28,25 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(Integer id, String nombre, String apellido, String dni, Date fechaIngreso, Domicilio domicilio) {
+    public Paciente(Integer id, String nombre, String apellido, String dni,String email, Date fechaIngreso, Domicilio domicilio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;
+        this.email = email;
     }
 
-    public Paciente(String nombre, String apellido, String dni, Date fechaIngreso, Domicilio domicilio) {
+    public Paciente(String nombre, String apellido, String dni, Date fechaIngreso, Domicilio domicilio, String email) {
 
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;
+        this.email = email;
+
     }
 
 
@@ -102,6 +106,14 @@ public class Paciente {
         this.turnos = turnos;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "Paciente{" +
@@ -109,8 +121,11 @@ public class Paciente {
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", dni='" + dni + '\'' +
+                ", email='" + email + '\'' +
                 ", fechaIngreso=" + fechaIngreso +
                 ", domicilio=" + domicilio +
+                ", turnos=" + turnos +
                 '}';
     }
 }
+

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.sql.Time;
 import java.util.Date;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -32,7 +33,7 @@ public class TurnoServiceTests {
 
     public void cargarDataSet() {
         Domicilio domicilio = new Domicilio("Av Santa fe", "444", "CABA", "Buenos Aires");
-        Paciente p = pacienteService.guardar(new Paciente("Santiago", "Paz", "88888888", new Date(), domicilio));
+        Paciente p = pacienteService.guardar(new Paciente("Santiago", "Paz", "88888888", new Date(), domicilio, "barbi@gmail.com"));
         this.odontologoService.registrarOdontologo(new Odontologo("Santiago", "Paz", 3455647));
 
     }
@@ -41,7 +42,7 @@ public class TurnoServiceTests {
 
 
         this.cargarDataSet();
-        turnoService.registrarTurno(new Turno(pacienteService.buscar(1).get(),odontologoService.buscar(1).get(),new Date()));
+        turnoService.registrarTurno(new Turno(pacienteService.buscar(1).get(),odontologoService.buscar(1).get(),new Date(), new Time(12,30,1)));
 
         Assert.assertNotNull(turnoService.buscar(1));
 

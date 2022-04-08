@@ -37,6 +37,7 @@ window.addEventListener('load', function () {
         }
           fetch(url,settings)
           .then(response => response.json())
+            location.reload();
 
     })
  })
