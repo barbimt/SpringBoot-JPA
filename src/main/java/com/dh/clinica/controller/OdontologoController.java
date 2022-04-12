@@ -47,10 +47,13 @@ public class OdontologoController {
         ResponseEntity response = null;
         if(odontologoService.leerOdontologo(id) == null){
             response = new ResponseEntity(HttpStatus.NOT_FOUND);
+
         }
         else{
             odontologoService.eliminarOdontologo(id);
-            response= new ResponseEntity(HttpStatus.NO_CONTENT);
+            response= ResponseEntity.ok("SE ELIMINO");
+                    //(HttpStatus.NO_CONTENT);
+
         }
         return response;
     }
