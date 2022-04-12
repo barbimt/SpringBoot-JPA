@@ -3,7 +3,7 @@ window.addEventListener('load', function () {
 
       //con fetch invocamos a la API de odontologos con el método GET
       //nos devolverá un JSON con una colección de odontologos
-      const url = '/pacientes';
+      const url = '/turnos';
       const settings = {
         method: 'GET'
       }
@@ -12,20 +12,20 @@ window.addEventListener('load', function () {
       .then(response => response.json())
       .then(data => {
       //recorremos la colección de odontologos del JSON
-         for(paciente of data){
+         for(turno of data){
             //por cada odontologo armaremos una fila de la tabla
             //cada fila tendrá un id que luego nos permitirá borrar la fila si eliminamos el odontologo
-            var table = document.getElementById("pacienteTable");
-            var pacienteRow =table.insertRow();
-            let tr_id = 'tr_' + paciente.id;
-            pacienteRow.id = tr_id;
+            var table = document.getElementById("turnoTable");
+            var turnoRow =table.insertRow();
+            let tr_id = 'tr_' + turno.id;
+            turnoRow.id = tr_id;
 
             //por cada odontologo creamos un boton delete que agregaremos en cada fila para poder eliminar la misma
             //dicho boton invocara a la funcion de java script deleteByKey que se encargará
             //de llamar a la API para eliminar un odontologo
             let deleteButton = '<button' +
-                                      ' id=' + '\"' + 'btn_delete_' + paciente.id + '\"' +
-                                      ' type="button" onclick="deleteBy('+paciente.id+')" class="btn btn-danger btn_delete">' +
+                                      ' id=' + '\"' + 'btn_delete_' + turno.id + '\"' +
+                                      ' type="button" onclick="deleteBy('+turno.id+')" class="btn btn-danger btn_delete">' +
                                       '&times' +
                                       '</button>';
 
@@ -33,33 +33,28 @@ window.addEventListener('load', function () {
             //a la función de java script findBy que se encargará de buscar al odontologo que queremos
             //modificar y mostrar los datos del mismo en un formulario.
             let updateButton = '<button' +
-                                      ' id=' + '\"' + 'btn_id_' + paciente.id + '\"' +
-                                      ' type="button" onclick="findBy('+paciente.id+')" class="btn btn-info btn_id">' +
-                                      paciente.id +
+                                      ' id=' + '\"' + 'btn_id_' +turno.id + '\"' +
+                                      ' type="button" onclick="findBy('+turno.id+')" class="btn btn-info btn_id">' +
+                                      turno.id +
                                       '</button>';
 
             //armamos cada columna de la fila
             //como primer columna pondremos el boton modificar
             //luego los datos del odontologo
             //como ultima columna el boton eliminar
-            pacienteRow.innerHTML = '<td>' + updateButton + '</td>' +
-                    '<td class=\"td_nombre\">' + paciente.nombre.toUpperCase() + '</td>' +
-                    '<td class=\"td_apellido\">' + paciente.apellido.toUpperCase() + '</td>' +
-                    '<td class=\"td_dni\">' + paciente.dni + '</td>' +
-                    '<td class=\"td_fechaIngreso\">' + new Date(paciente.fechaIngreso).toISOString().slice(0,10) + '</td>' +
-                    '<td class=\"td_domicilio\"> Calle ' + paciente.domicilio.calle + ' ' + paciente.domicilio.numero + '</td>' +
-                    '<td class=\"td_email\">' + paciente.email + '</td>' +
-
+            turnoRow.innerHTML = '<td>' + updateButton + '</td>' +
+                    '<td class=\"td_fecha\">' + new Date(turno.fecha).toISOString().slice(0,10)  + '</td>' +
+                    '<td class=\"td_hora\">' + turno.hora + '</td>' +
+                    '<td class=\"td_paciente_id\">' + turno.paciente.id + '</td>' +
+                    '<td class=\"td_odontologo_id\">' +turno.odontologo.id + '</td>' +
                     '<td>' + deleteButton + '</td>';
-
         };
-
     })
     })
 
     (function(){
       let pathname = window.location.pathname;
-      if (pathname == "/pacientes.html") {
+      if (pathname == "/turnos.html") {
           document.querySelector(".nav .nav-item a:last").addClass("active");
       }
     })

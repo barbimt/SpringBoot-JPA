@@ -8,42 +8,48 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/odontologo/post_odontologo.js"></script>
+    <script type="text/javascript" src="/js/turnos/post_turno.js"></script>
 </head>
 <body>
 <div class="container">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" href="/odontologos.html">Listar Odontologos</a>
+            <a class="nav-link" href="/turnos.html">Listar Turnos</a>
         </li>
     </ul>
     <div class="row">
         <div class="col-sm-7" style="background-color:#e6fffa; padding:10px; border-radius:3px">
-            <h3>Agregar Odontologo</h3>
-            <form id="add_new_odontologo">
+            <h3>Agregar Turno</h3>
+            <form id="add_new_turno">
                 <div class="form-group">
-                    <label class="control-label" for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre"
-                           placeholder="Ingrese el nombre"
-                           name="nombre" required></input>
+                    <label class="control-label" for="fecha">Fecha:</label>
+                    <input type="text" class="form-control" id="fecha"
+                           placeholder="Fecha"
+                           name="fecha" required></input>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="apellido">Apellido:</label>
-                    <input type="text" class="form-control" id="apellido"
-                           placeholder="Ingrese el apellido"
-                           name="apellido" required></input>
+                    <label class="control-label" for="hora">Hora:</label>
+                    <input type="text" class="form-control" id="hora"
+                           placeholder="hora"
+                           name="hora" required></input>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label" for="matricula">Matricula:</label>
-                    <input type="text" class="form-control" id="matricula"
-                           placeholder="Ingrese la matricula"
-                           name="matricula" required></input>
+                    <label class="control-label" for="paciente_id">ID Paciente:</label>
+                    <input type="text" class="form-control" id="paciente_id"
+                           placeholder="ID Paciente"
+                           name="paciente_id" required></input>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="odontologo_id">ID Odontólogo:</label>
+                    <input type="text" class="form-control" id="odontologo_id"
+                           placeholder="ID Odontólogo"
+                           name="odontologo_id" required></input>
                 </div>
 
 
                 <button type="submit" class="btn btn-danger"
-                        id="btn-add-new-odontologo">Guardar</button>
+                        id="btn-add-new-turno">Guardar</button>
             </form>
             <div id="response" style="display:none; margin-top:10px">
             </div>

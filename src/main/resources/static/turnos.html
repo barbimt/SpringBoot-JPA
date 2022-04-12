@@ -8,36 +8,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/odontologo/update_odontologo.js"></script>
-    <script type="text/javascript" src="/js/odontologo/delete_odontologo.js"></script>
-    <script type="text/javascript" src="/js/odontologo/get_odontologo.js"></script>
-    <script type="text/javascript" src="/js/odontologo/post_odontologo.js"></script>
+    <script type="text/javascript" src="/js/turnos/update_turno.js"></script>
+    <script type="text/javascript" src="/js/turnos/delete_turno.js"></script>
+    <script type="text/javascript" src="/js/turnos/get_turno.js"></script>
+
 </head>
 <body>
 <div class="container">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" href="/alta-odontologos.html">Agregar nuevo</a>
+            <a class="nav-link" href="/alta-turnos.html">Agregar nuevo</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/odontologos.html/">Todos</a>
+            <a class="nav-link" href="/turnos.html/">Todos</a>
         </li>
     </ul>
 
-    <div id="div_odontologo_table">
-        <h1>Odontologos</h1>
+    <div id="div_turno_table">
+        <h1>Turnos</h1>
         <div class="row col-md-12 table-responsive">
-            <table id="odontologoTable" class="table table-striped">
+            <table id="turnoTable" class="table table-striped">
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Matricula</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>ID Paciente</th>
+                    <th>ID Odontólogo</th>
                     <th></th>
                 </tr>
                 </thead>
-                <tbody id="odontologoTableBody">
+                <tbody id="turnoTableBody">
 
                 </tbody>
             </table>
@@ -46,23 +47,27 @@
     <div class="row">
         <div class="col-sm-12" style="display: none;
 											background-color:#e6fffa; padding:10px; border-radius:3px"
-             id="div_odontologo_updating">
-            <form id="update_odontologo_form">
+             id="div_turno_updating">
+            <form id="update_turno_form">
                 <div class="form-group">
                     <label >Id:</label>
-                    <input type="text" class="form-control" id="odontologo_id" readonly>
+                    <input type="text" class="form-control" id="turno_id" readonly>
                 </div>
                 <div class="form-group">
-                    <label >Nombre:</label>
-                    <input type="text" class="form-control" placeholder="nombre" id="nombre">
+                    <label >Fecha:</label>
+                    <input type="text" class="form-control" placeholder="Fecha" id="fecha">
                 </div>
                 <div class="form-group">
-                    <label >Apellido:</label>
-                    <input type="text" class="form-control" placeholder="apellido" id="apellido">
+                    <label >Hora:</label>
+                    <input type="text" class="form-control" placeholder="Hora" id="hora">
                 </div>
                 <div class="form-group">
-                    <label >Matricula:</label>
-                    <input type="text" class="form-control" placeholder="matricula" id="matricula">
+                    <label >ID Paciente:</label>
+                    <input type="text" class="form-control" placeholder="ID Paciente" id="paciente_id">
+                </div>
+                <div class="form-group">
+                    <label >ID Odontólogo:</label>
+                    <input type="text" class="form-control" placeholder="ID Odontólogo" id="odontologo_id">
                 </div>
 
 
