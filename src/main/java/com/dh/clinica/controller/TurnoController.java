@@ -1,6 +1,8 @@
 package com.dh.clinica.controller;
 
+import com.dh.clinica.model.Paciente;
 import com.dh.clinica.model.Turno;
+import com.dh.clinica.model.TurnoDTO;
 import com.dh.clinica.service.OdontologoService;
 import com.dh.clinica.service.PacienteService;
 import com.dh.clinica.service.TurnoService;
@@ -10,53 +12,56 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/turnos")
 public class TurnoController {
 
+
     @Autowired
     private TurnoService turnoService;
-    @Autowired
-    private PacienteService pacienteService;
-    @Autowired
-    private OdontologoService odontologoService;
 
     @PostMapping
-    public ResponseEntity<Turno> registrarTurno(@RequestBody Turno turno) {
-        ResponseEntity<Turno> response;
-        if (pacienteService.buscar(turno.getPaciente().getId()).isPresent() && odontologoService.buscar(turno.getOdontologo().getId()).isPresent())
-            response = ResponseEntity.ok(turnoService.registrarTurno(turno));
-
-        else
-            response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-
-        return response;
-
-
+    public ResponseEntity<Turno> crearTurno(@RequestBody TurnoDTO turnoDTO) {
+      //  turnoService.crearTurno(turnoDTO);
+        // ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok(turnoService.crearTurno(turnoDTO));
     }
 
-    @GetMapping
-    public ResponseEntity<List<Turno>> listar() {
-        return ResponseEntity.ok(turnoService.listar());
+    @GetMapping("/{id}")
+    public TurnoDTO buscarPorId(@PathVariable Integer id){
+        return turnoService.leerTurno(id);
+    }
+
+    @PutMapping()
+    public ResponseEntity<Turno> modificarTurno(@RequestBody TurnoDTO turnoDTO) {
+        ResponseEntity<Turno> response = null;
+
+        if (turnoDTO.getId() != null && turnoService.leerTurno(turnoDTO.getId()) != null)
+            response = ResponseEntity.ok(turnoService.modificarTurno(turnoDTO));
+        else
+            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
+        return response;
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable Integer id) {
-        ResponseEntity<String> response;
-        if (turnoService.buscar(id).isPresent()) { // Esta validacion no esta en el enunciado del ejericio, pero se las dejo para que la tengan.
-            turnoService.eliminar(id);
-            response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Eliminado");
-        } else {
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    public ResponseEntity eliminarPorId(@PathVariable Integer id){
+        ResponseEntity response = null;
+        if(turnoService.leerTurno(id) == null){
+            response = new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+        else{
+            turnoService.eliminarTurno(id);
+            response= new ResponseEntity(HttpStatus.NO_CONTENT);
         }
         return response;
     }
 
-    @PutMapping
-    public ResponseEntity<Turno> actualizarTurno(@RequestBody Turno turno) {
-        return ResponseEntity.ok(turnoService.actualizar(turno));
-
+    @GetMapping
+    public ResponseEntity<Set<TurnoDTO>> listarTodos() {
+        return ResponseEntity.ok(turnoService.leerTodos());
     }
 
 

@@ -23,13 +23,13 @@ public class DomicilioService {
         return d;
     }
     public Optional<Domicilio> buscar(Integer id){
-        return Optional.of(domicilioRepository.getOne(Long.valueOf(id)));
+        return Optional.of(domicilioRepository.getOne(Integer.valueOf(id)));
     }
     public List<Domicilio> buscarTodos(){
         return domicilioRepository.findAll();
     }
     public void eliminar(Integer id){
-        domicilioRepository.deleteById(Long.valueOf(id));
+        domicilioRepository.deleteById(Integer.valueOf(id));
     }
 
 }

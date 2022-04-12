@@ -1,5 +1,8 @@
 package com.dh.clinica.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -10,18 +13,21 @@ import java.util.Set;
 public class Paciente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @SequenceGenerator(name = "paciente_sequence", sequenceName = "paciente_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "paciente_sequence")
     private Integer id;
     private String nombre;
     private String apellido;
     private String dni;
     private String email;
+    @Temporal(TemporalType.DATE)
     private Date fechaIngreso;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "domicilio_id")
+    @JoinColumn(name = "domicilio_id", referencedColumnName = "id")
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
     private Domicilio domicilio;
     @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Turno> turnos = new HashSet<>();
 
 

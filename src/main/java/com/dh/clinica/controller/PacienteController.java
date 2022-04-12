@@ -2,6 +2,7 @@ package com.dh.clinica.controller;
 
 import com.dh.clinica.model.Odontologo;
 import com.dh.clinica.model.Paciente;
+import com.dh.clinica.model.PacienteDTO;
 import com.dh.clinica.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/pacientes")
@@ -16,30 +18,22 @@ public class PacienteController {
     @Autowired
     private PacienteService pacienteService;
 
-    @PostMapping()
-    public ResponseEntity<Paciente> registrarPaciente(@RequestBody Paciente paciente) {
-
-        return ResponseEntity.ok(pacienteService.guardar(paciente));
-
-    }
-    @GetMapping
-    public ResponseEntity<List<Paciente>> buscarTodos(){
-        return ResponseEntity.ok(pacienteService.buscarTodos());
+    @PostMapping
+    public ResponseEntity<Paciente> crearPaciente(@RequestBody PacienteDTO pacienteDTO) {
+        return ResponseEntity.ok(pacienteService.crearPaciente(pacienteDTO));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Paciente> buscar(@PathVariable Integer id) {
-        Paciente paciente = pacienteService.buscar(id).orElse(null);
-
-        return ResponseEntity.ok(paciente);
+    public PacienteDTO buscarPorId(@PathVariable Integer id){
+        return pacienteService.leerPaciente(id);
     }
 
     @PutMapping()
-    public ResponseEntity<Paciente> actualizar(@RequestBody Paciente paciente) {
+    public ResponseEntity<Paciente> modificarPaciente(@RequestBody PacienteDTO pacienteDTO) {
         ResponseEntity<Paciente> response = null;
 
-        if (paciente.getId() != null && pacienteService.buscar(paciente.getId()).isPresent())
-            response = ResponseEntity.ok(pacienteService.actualizar(paciente));
+        if (pacienteDTO.getId() != null && pacienteService.leerPaciente(pacienteDTO.getId()) != null)
+            response = ResponseEntity.ok(pacienteService.modificarPaciente(pacienteDTO));
         else
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
@@ -47,16 +41,20 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable Integer id) {
-        ResponseEntity<String> response = null;
-
-        if (pacienteService.buscar(id).isPresent()) {
-            pacienteService.eliminar(id);
-            response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Eliminado");
-        } else {
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    public ResponseEntity eliminarPorId(@PathVariable Integer id){
+        ResponseEntity response = null;
+        if(pacienteService.leerPaciente(id) == null){
+            response = new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-
+        else{
+            pacienteService.eliminarPaciente(id);
+            response= new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
         return response;
+    }
+
+    @GetMapping
+    public ResponseEntity<Set<PacienteDTO>> listarTodos() {
+        return ResponseEntity.ok(pacienteService.leerTodos());
     }
 }
