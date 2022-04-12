@@ -1,5 +1,7 @@
 package com.dh.clinica.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.sql.Time;
 import java.util.Date;
 
@@ -7,7 +9,9 @@ public class TurnoDTO {
     private Integer id;
     private Date fecha;
     private Time hora;
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
     private Paciente paciente;
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
     private Odontologo odontologo;
 
     public Integer getId() {

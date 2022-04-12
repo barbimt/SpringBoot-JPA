@@ -46,7 +46,7 @@ window.addEventListener('load', function () {
                     '<td class=\"td_nombre\">' + paciente.nombre.toUpperCase() + '</td>' +
                     '<td class=\"td_apellido\">' + paciente.apellido.toUpperCase() + '</td>' +
                     '<td class=\"td_dni\">' + paciente.dni + '</td>' +
-                    '<td class=\"td_fechaIngreso\">' + new Date(paciente.fechaIngreso).toISOString().slice(0,10) + '</td>' +
+                    '<td class=\"td_fechaIngreso\">' + new Date(paciente.fechaIngreso).toISOString().slice(0,10)+ '</td>' +
                     '<td class=\"td_domicilio\"> Calle ' + paciente.domicilio.calle + ' ' + paciente.domicilio.numero + '</td>' +
                     '<td class=\"td_email\">' + paciente.email + '</td>' +
 

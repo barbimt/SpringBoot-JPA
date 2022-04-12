@@ -1,7 +1,8 @@
 package com.dh.clinica.service;
 
-import com.dh.clinica.model.Turno;
-import com.dh.clinica.model.TurnoDTO;
+import com.dh.clinica.model.*;
+import com.dh.clinica.repository.impl.OdontologoRepository;
+import com.dh.clinica.repository.impl.PacienteRepository;
 import com.dh.clinica.repository.impl.TurnoRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,19 @@ public class TurnoService implements ITurnoService {
 
     @Autowired
     private TurnoRepository turnoRepository;
+    @Autowired
+    private PacienteRepository pacienteRepository;
+    @Autowired
+    private OdontologoRepository odontologoRepository;
 
     @Autowired
     ObjectMapper mapper;
 
     private Turno guardarTurno(TurnoDTO turnoDTO) {
+        Paciente paciente = pacienteRepository.findById(turnoDTO.getPaciente().getId()).get();
+        Odontologo odontologo = odontologoRepository.findById(turnoDTO.getOdontologo().getId()).get();
+        turnoDTO.setPaciente(paciente);
+        turnoDTO.setOdontologo(odontologo);
         Turno turno = mapper.convertValue(turnoDTO, Turno.class);
         return turnoRepository.save(turno);
     }

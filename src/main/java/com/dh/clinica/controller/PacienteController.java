@@ -48,7 +48,7 @@ public class PacienteController {
         }
         else{
             pacienteService.eliminarPaciente(id);
-            response= new ResponseEntity(HttpStatus.NO_CONTENT);
+            response= ResponseEntity.ok("SE ELIMINÓ EL PACIENTE CON ID " + id);
         }
         return response;
     }

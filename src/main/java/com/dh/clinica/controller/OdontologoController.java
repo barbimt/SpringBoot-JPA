@@ -51,7 +51,7 @@ public class OdontologoController {
         }
         else{
             odontologoService.eliminarOdontologo(id);
-            response= ResponseEntity.ok("SE ELIMINO");
+            response= ResponseEntity.ok("SE ELIMINÓ EL ODONTÓLOGO CON ID " + id);
                     //(HttpStatus.NO_CONTENT);
 
         }

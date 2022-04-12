@@ -18,15 +18,15 @@ import java.util.Set;
 @RequestMapping("/turnos")
 public class TurnoController {
 
-
     @Autowired
     private TurnoService turnoService;
 
     @PostMapping
     public ResponseEntity<Turno> crearTurno(@RequestBody TurnoDTO turnoDTO) {
-      //  turnoService.crearTurno(turnoDTO);
-        // ResponseEntity.ok(HttpStatus.OK);
+      //  turnoService.crearTurno(turnoDTO)
+       //  ResponseEntity.ok(HttpStatus.OK);
         return ResponseEntity.ok(turnoService.crearTurno(turnoDTO));
+
     }
 
     @GetMapping("/{id}")
@@ -54,7 +54,7 @@ public class TurnoController {
         }
         else{
             turnoService.eliminarTurno(id);
-            response= new ResponseEntity(HttpStatus.NO_CONTENT);
+            response= ResponseEntity.ok("SE ELIMINÓ EL TURNO CON ID " + id);
         }
         return response;
     }
