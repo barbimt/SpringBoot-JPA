@@ -1,6 +1,5 @@
 package com.dh.clinica.service.mongo;
 
-import com.dh.clinica.model.Domicilio;
 import com.dh.clinica.model.mongo.DomicilioMongo;
 import com.dh.clinica.repository.impl.mongo.DomicilioRepositoryMongo;
 import org.springframework.stereotype.Service;

@@ -2,9 +2,6 @@ package com.dh.clinica;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.dh.clinica.model.OdontologoDTO;
-import com.dh.clinica.service.IOdontologoService;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

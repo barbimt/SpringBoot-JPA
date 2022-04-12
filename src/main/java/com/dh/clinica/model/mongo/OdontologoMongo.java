@@ -1,10 +1,8 @@
 package com.dh.clinica.model.mongo;
 
-import com.dh.clinica.model.Turno;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.HashSet;
 import java.util.Set;
 @Document(collection = "odontologos")
 public class OdontologoMongo {
@@ -13,7 +11,7 @@ public class OdontologoMongo {
     private String nombre;
     private String apellido;
     private Integer matricula;
-    private Set<Turno> turnos;
+    private Set<TurnoMongo> turnos;
 
     public OdontologoMongo() {
     }
@@ -64,11 +62,11 @@ public class OdontologoMongo {
         this.matricula = matricula;
     }
 
-    public Set<Turno> getTurnos() {
+    public Set<TurnoMongo> getTurnos() {
         return turnos;
     }
 
-    public void setTurnos(Set<Turno> turnos) {
+    public void setTurnos(Set<TurnoMongo> turnos) {
         this.turnos = turnos;
     }
 

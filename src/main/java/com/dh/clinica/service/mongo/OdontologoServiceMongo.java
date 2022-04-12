@@ -1,9 +1,6 @@
 package com.dh.clinica.service.mongo;
 
-import com.dh.clinica.model.Odontologo;
-import com.dh.clinica.model.mongo.DomicilioMongo;
 import com.dh.clinica.model.mongo.OdontologoMongo;
-import com.dh.clinica.repository.impl.mongo.DomicilioRepositoryMongo;
 import com.dh.clinica.repository.impl.mongo.OdontologoRepositoryMongo;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -12,9 +9,11 @@ import java.util.List;
 public class OdontologoServiceMongo {
     private OdontologoRepositoryMongo odontologoRepositoryMongo;
 
+    // Constructor
     public OdontologoServiceMongo(OdontologoRepositoryMongo odontologoRepositoryMongo) {
         this.odontologoRepositoryMongo = odontologoRepositoryMongo;
     }
+
     public OdontologoMongo guardar(OdontologoMongo o){
         return odontologoRepositoryMongo.save(o);
     }
@@ -31,7 +30,7 @@ public class OdontologoServiceMongo {
         odontologoRepositoryMongo.deleteById(id);
     }
 
-    public OdontologoMongo editar(OdontologoMongo odontologoMongo){
-        return odontologoRepositoryMongo.insert(odontologoMongo);
+    public OdontologoMongo editar(OdontologoMongo o){
+        return odontologoRepositoryMongo.save(o);
     }
 }

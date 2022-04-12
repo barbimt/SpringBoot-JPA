@@ -1,19 +1,12 @@
 package com.dh.clinica.controller.mongo;
 
-import com.dh.clinica.model.Paciente;
-import com.dh.clinica.model.PacienteDTO;
-import com.dh.clinica.model.mongo.OdontologoMongo;
 import com.dh.clinica.model.mongo.PacienteMongo;
-import com.dh.clinica.service.PacienteService;
-import com.dh.clinica.service.mongo.OdontologoServiceMongo;
 import com.dh.clinica.service.mongo.PacienteServiceMongo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/pacientes")
@@ -48,7 +41,6 @@ public class PacienteControllerMongo {
     @PutMapping()
     public ResponseEntity<PacienteMongo> modificarOdontologo(@RequestBody PacienteMongo pacienteMongo) {
         ResponseEntity<PacienteMongo> response = null;
-
         if (pacienteMongo.getId() != null && pacienteServiceMongo.buscar(pacienteMongo.getId()) != null)
             response = ResponseEntity.ok(pacienteServiceMongo.editar(pacienteMongo));
         else

@@ -1,19 +1,12 @@
 package com.dh.clinica.controller.mongo;
 
-import com.dh.clinica.model.Turno;
-import com.dh.clinica.model.TurnoDTO;
-import com.dh.clinica.model.mongo.PacienteMongo;
 import com.dh.clinica.model.mongo.TurnoMongo;
-import com.dh.clinica.service.TurnoService;
-import com.dh.clinica.service.mongo.PacienteServiceMongo;
 import com.dh.clinica.service.mongo.TurnoServiceMongo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/turnos")
