@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 
 @RestController
@@ -18,20 +19,31 @@ public class OdontologoController {
         this.odontologoService = odontologoService;
     }
 
+
     @PostMapping
-    public Odontologo guardarOdontologo(@RequestBody Odontologo o){
-        return odontologoService.guardar(o);
+    public ResponseEntity<Odontologo> guardarOdontologo(@RequestBody Odontologo o ){
+        return ResponseEntity.ok(odontologoService.guardar(o));
     }
 
     @GetMapping
-    public List<Odontologo>listarTodos(){
-        return odontologoService.listar();
+
+    public ResponseEntity<List<Odontologo>> listarTodos() {
+        return ResponseEntity.ok(odontologoService.listar());
     }
 
     @DeleteMapping("/{id}")
-    public String eliminar(@PathVariable String id){
-        odontologoService.eliminar(id);
-        return "eliminado";
+    public ResponseEntity eliminarPorId(@PathVariable String id){
+        ResponseEntity response = null;
+        if(odontologoService.buscar(id) == null){
+            response = new ResponseEntity(HttpStatus.NOT_FOUND);
+
+        }
+        else{
+            odontologoService.eliminar(id);
+            response= ResponseEntity.ok("SE ELIMINÓ EL ODONTÓLOGO CON ID " + id);
+            //(HttpStatus.NO_CONTENT);
+        }
+        return response;
     }
 
     @GetMapping("/{id}")

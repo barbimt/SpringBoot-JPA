@@ -2,35 +2,38 @@ package com.dh.clinica.service.mongo;
 
 import com.dh.clinica.model.mongo.Odontologo;
 import com.dh.clinica.repository.impl.mongo.OdontologoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public class OdontologoService {
-    private OdontologoRepository odontologoRepositoryMongo;
+
+    @Autowired
+    private OdontologoRepository odontologoRepository;
 
     // Constructor
-    public OdontologoService(OdontologoRepository odontologoRepositoryMongo) {
-        this.odontologoRepositoryMongo = odontologoRepositoryMongo;
+    public OdontologoService(OdontologoRepository odontologoRepository) {
+        this.odontologoRepository = odontologoRepository;
     }
 
     public Odontologo guardar(Odontologo o){
-        return odontologoRepositoryMongo.save(o);
+        return odontologoRepository.save(o);
     }
 
     public List<Odontologo> listar(){
-        return odontologoRepositoryMongo.findAll();
+        return odontologoRepository.findAll();
     }
 
     public Odontologo buscar(String id){
-        return odontologoRepositoryMongo.findById(id).orElseGet(null);
+        return odontologoRepository.findById(id).orElseGet(null);
     }
 
     public void eliminar(String id){
-        odontologoRepositoryMongo.deleteById(id);
+        odontologoRepository.deleteById(id);
     }
 
     public Odontologo editar(Odontologo o){
-        return odontologoRepositoryMongo.save(o);
+        return odontologoRepository.save(o);
     }
 }
