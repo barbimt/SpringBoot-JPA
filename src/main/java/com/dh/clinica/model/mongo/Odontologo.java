@@ -16,13 +16,7 @@ public class Odontologo {
     public Odontologo() {
     }
 
-    public Odontologo(String id, String nombre, String apellido, Integer matricula) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.matricula = matricula;
 
-    }
 
     public Odontologo(String nombre, String apellido, Integer matricula) {
         this.nombre = nombre;

@@ -24,15 +24,7 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String id, String nombre, String apellido, String dni, String email, Date fechaIngreso, Domicilio domicilio) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.email = email;
-        this.fechaIngreso = fechaIngreso;
-        this.domicilio = domicilio;
-    }
+
 
     public Paciente(String nombre, String apellido, String dni, String email, Date fechaIngreso, Domicilio domicilio) {
         this.nombre = nombre;
