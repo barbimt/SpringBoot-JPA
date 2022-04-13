@@ -2,6 +2,8 @@ package com.dh.clinica;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.dh.clinica.model.mongo.Odontologo;
+import com.dh.clinica.service.mongo.OdontologoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,17 +12,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 class OdontologoServiceTest {
 
     @Autowired
-    private IOdontologoService odontologoService;
+    private OdontologoService odontologoService;
 
     @Test
     public void testCrearOdontologo() {
-        OdontologoDTO odontologoDTO = new OdontologoDTO();
-        odontologoDTO.setNombre("Eugenia");
-        odontologoDTO.setApellido("Lauría");
-        odontologoDTO.setMatricula("567");
-        odontologoService.crearOdontologo(odontologoDTO);
+        Odontologo odontologo = new Odontologo();
+        odontologo.setNombre("Eugenia");
+        odontologo.setApellido("Lauría");
+        odontologo.setMatricula(565);
+        odontologoService.guardar(odontologo);
 
-        OdontologoDTO odontologoEugenia =  odontologoService.leerOdontologo(1);
+        Odontologo odontologoEugenia =  odontologoService.buscar("1");
 
         assertTrue(odontologoEugenia != null );
     }

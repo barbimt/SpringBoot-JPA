@@ -9,32 +9,32 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.sql.Time;
 import java.util.Date;
 @Document(collection = "turnos")
-public class TurnoMongo {
+public class Turno {
     @Id
-    private Integer id;
+    private String id;
     private Date fecha;
     private Time hora;
     @DBRef
-    private PacienteMongo paciente;
+    private Paciente paciente;
     @DBRef
-    private OdontologoMongo odontologo;
+    private Odontologo odontologo;
 
-    public TurnoMongo() {
+    public Turno() {
     }
 
 
-    public TurnoMongo(Date fecha, Time hora, PacienteMongo paciente, OdontologoMongo odontologo) {
+    public Turno(Date fecha, Time hora, Paciente paciente, Odontologo odontologo) {
         this.fecha = fecha;
         this.hora = hora;
         this.paciente = paciente;
         this.odontologo = odontologo;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -54,19 +54,19 @@ public class TurnoMongo {
         this.hora = hora;
     }
 
-    public PacienteMongo getPaciente() {
+    public Paciente getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(PacienteMongo paciente) {
+    public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 
-    public OdontologoMongo getOdontologo() {
+    public Odontologo getOdontologo() {
         return odontologo;
     }
 
-    public void setOdontologo(OdontologoMongo odontologo) {
+    public void setOdontologo(Odontologo odontologo) {
         this.odontologo = odontologo;
     }
 }

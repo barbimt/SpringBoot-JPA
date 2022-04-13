@@ -4,18 +4,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
 @Document(collection = "domicilios")
-public class DomicilioMongo {
+public class Domicilio {
     @Id
-    private Integer id;
+    private String id;
     private String calle;
     private String numero;
     private String localidad;
     private String provincia;
 
-    public DomicilioMongo() {
+    public Domicilio() {
     }
 
-    public DomicilioMongo(Integer id, String calle, String numero, String localidad, String provincia) {
+    public Domicilio(String id, String calle, String numero, String localidad, String provincia) {
         this.id = id;
         this.calle = calle;
         this.numero = numero;
@@ -23,18 +23,18 @@ public class DomicilioMongo {
         this.provincia = provincia;
     }
 
-    public DomicilioMongo(String calle, String numero, String localidad, String provincia) {
+    public Domicilio(String calle, String numero, String localidad, String provincia) {
         this.calle = calle;
         this.numero = numero;
         this.localidad = localidad;
         this.provincia = provincia;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

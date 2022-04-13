@@ -8,9 +8,9 @@ import java.util.Date;
 import java.util.Set;
 
 @Document(collection = "pacientes")
-public class PacienteMongo {
+public class Paciente {
     @Id
-    private Integer id;
+    private String id;
     private String nombre;
     private String apellido;
     private String dni;
@@ -18,12 +18,13 @@ public class PacienteMongo {
     private Date fechaIngreso;
     @DBRef
     private Domicilio domicilio;
+
     private Set<Turno> turnos;
 
-    public PacienteMongo() {
+    public Paciente() {
     }
 
-    public PacienteMongo(Integer id, String nombre, String apellido, String dni, String email, Date fechaIngreso, Domicilio domicilio) {
+    public Paciente(String id, String nombre, String apellido, String dni, String email, Date fechaIngreso, Domicilio domicilio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -33,7 +34,7 @@ public class PacienteMongo {
         this.domicilio = domicilio;
     }
 
-    public PacienteMongo(String nombre, String apellido, String dni, String email, Date fechaIngreso, Domicilio domicilio) {
+    public Paciente(String nombre, String apellido, String dni, String email, Date fechaIngreso, Domicilio domicilio) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -42,11 +43,11 @@ public class PacienteMongo {
         this.domicilio = domicilio;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

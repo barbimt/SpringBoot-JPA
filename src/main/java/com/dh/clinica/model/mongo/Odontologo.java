@@ -5,18 +5,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Set;
 @Document(collection = "odontologos")
-public class OdontologoMongo {
+public class Odontologo {
     @Id
-    private Integer id;
+    private String id;
     private String nombre;
     private String apellido;
     private Integer matricula;
-    private Set<TurnoMongo> turnos;
+    private Set<Turno> turnos;
 
-    public OdontologoMongo() {
+    public Odontologo() {
     }
 
-    public OdontologoMongo(Integer id, String nombre, String apellido, Integer matricula) {
+    public Odontologo(String id, String nombre, String apellido, Integer matricula) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -24,17 +24,17 @@ public class OdontologoMongo {
 
     }
 
-    public OdontologoMongo(String nombre, String apellido, Integer matricula) {
+    public Odontologo(String nombre, String apellido, Integer matricula) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.matricula = matricula;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -62,11 +62,11 @@ public class OdontologoMongo {
         this.matricula = matricula;
     }
 
-    public Set<TurnoMongo> getTurnos() {
+    public Set<Turno> getTurnos() {
         return turnos;
     }
 
-    public void setTurnos(Set<TurnoMongo> turnos) {
+    public void setTurnos(Set<Turno> turnos) {
         this.turnos = turnos;
     }
 
