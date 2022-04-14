@@ -3,6 +3,7 @@ package com.dh.clinica.model.mongo;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 import java.util.Set;
@@ -16,7 +17,10 @@ public class Paciente {
     private String dni;
     private String email;
     private Date fechaIngreso;
-    @DBRef
+
+
+    @DBRef()
+    @Field("domicilio_id")
     private Domicilio domicilio;
 
     private Set<Turno> turnos;

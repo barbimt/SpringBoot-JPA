@@ -10,30 +10,33 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class PacienteService {
-    private PacienteRepository pacienteRepositoryMongo;
+    @Autowired
+    private PacienteRepository pacienteRepository;
+
 @Autowired
 private DomicilioRepository domicilioRepository;
-    public PacienteService(PacienteRepository pacienteRepositoryMongo) {
-        this.pacienteRepositoryMongo = pacienteRepositoryMongo;
+
+    public PacienteService(PacienteRepository pacienteRepository) {
+        this.pacienteRepository = pacienteRepository;
     }
 
     public Paciente guardar(Paciente p){
-        Domicilio domicilio = domicilioRepository.findById(p.getDomicilio().getId()).get();
-        p.setDomicilio(domicilio);
-        return pacienteRepositoryMongo.save(p);
+    Domicilio domicilio = domicilioRepository.save(p.getDomicilio());
+
+        return pacienteRepository.save(p);
     }
 
     public List<Paciente> listar(){
-        return pacienteRepositoryMongo.findAll();
+        return pacienteRepository.findAll();
     }
 
     public Paciente buscar(String id){
-        return pacienteRepositoryMongo.findById(id).orElseGet(null);
+        return pacienteRepository.findById(id).orElseGet(null);
     }
     public void eliminar(String id){
-        pacienteRepositoryMongo.deleteById(id);
+        pacienteRepository.deleteById(id);
     }
-    public Paciente editar(Paciente pacienteMongo){
-        return pacienteRepositoryMongo.insert(pacienteMongo);
+    public Paciente editar(Paciente paciente){
+        return pacienteRepository.save(paciente);
     }
 }

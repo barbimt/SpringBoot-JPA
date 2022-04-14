@@ -26,7 +26,6 @@ public class OdontologoController {
     }
 
     @GetMapping
-
     public ResponseEntity<List<Odontologo>> listarTodos() {
         return ResponseEntity.ok(odontologoService.listar());
     }

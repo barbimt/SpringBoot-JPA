@@ -1,5 +1,6 @@
 package com.dh.clinica.controller.mongo;
 
+import com.dh.clinica.model.mongo.Paciente;
 import com.dh.clinica.model.mongo.Turno;
 import com.dh.clinica.service.mongo.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import java.util.List;
 @RequestMapping("/turnos")
 public class TurnoController {
 
-    @Autowired
     private TurnoService turnoService;
 
     public TurnoController(TurnoService turnoService) {
@@ -21,19 +21,27 @@ public class TurnoController {
     }
 
     @PostMapping
-    public Turno guardarTurno (@RequestBody Turno t){
-        return turnoService.guardar(t);
+    public ResponseEntity<Turno> guardarTurno (@RequestBody Turno t){
+        return ResponseEntity.ok(turnoService.guardar(t));
     }
 
     @GetMapping
-    public List<Turno> listarTodos(){
-        return turnoService.listar();
+    public ResponseEntity<List<Turno>> listarTodos() {
+        return ResponseEntity.ok(turnoService.listar());
     }
 
     @DeleteMapping("/{id}")
-    public String eliminar(@PathVariable String id){
-        turnoService.eliminar(id);
-        return "eliminado";
+    public ResponseEntity eliminarPorId(@PathVariable String id){
+        ResponseEntity response = null;
+        if(turnoService.buscar(id) == null){
+            response = new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+        else{
+            turnoService.eliminar(id);
+            response= ResponseEntity.ok("SE ELIMINÓ EL ODONTÓLOGO CON ID " + id);
+            //(HttpStatus.NO_CONTENT);
+        }
+        return response;
     }
 
     @GetMapping("/{id}")
@@ -41,15 +49,14 @@ public class TurnoController {
         return turnoService.buscar(id);
     }
 
-    @PutMapping()
-    public ResponseEntity<Turno> modificarOdontologo(@RequestBody Turno turno) {
-        ResponseEntity<Turno> response = null;
 
-        if (turno.getId() != null && turnoService.buscar(turno.getId()) != null)
-            response = ResponseEntity.ok(turnoService.editar(turno));
+    @PutMapping()
+    public ResponseEntity<Turno> modificarTurno(@RequestBody Turno t) {
+        ResponseEntity<Turno> response = null;
+        if (t.getId() != null && turnoService.buscar(t.getId()) != null)
+            response = ResponseEntity.ok(turnoService.editar(t));
         else
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-
         return response;
     }
 

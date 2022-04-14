@@ -1,5 +1,6 @@
 package com.dh.clinica.controller.mongo;
 
+
 import com.dh.clinica.model.mongo.Paciente;
 import com.dh.clinica.repository.impl.mongo.PacienteRepository;
 import com.dh.clinica.service.mongo.PacienteService;
@@ -12,43 +13,47 @@ import java.util.List;
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
-    private PacienteService pacienteServiceMongo;
+    private PacienteService pacienteService;
 
-    public PacienteController(PacienteService pacienteServiceMongo) {
-        this.pacienteServiceMongo = pacienteServiceMongo;
+    public PacienteController(PacienteService pacienteService) {
+        this.pacienteService = pacienteService;
     }
 
     @PostMapping
     public ResponseEntity<Paciente> guardaPaciente (@RequestBody Paciente p){
-        try {
-            Paciente paciente = pacienteServiceMongo.guardar(p);
-            return new ResponseEntity<>(paciente, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        return ResponseEntity.ok(pacienteService.guardar(p));
     }
 
     @GetMapping
-    public List<Paciente> listarTodos(){
-        return pacienteServiceMongo.listar();
+    public ResponseEntity<List<Paciente>> listarTodos() {
+        return ResponseEntity.ok(pacienteService.listar());
     }
 
+
     @DeleteMapping("/{id}")
-    public String eliminar(@PathVariable String id){
-        pacienteServiceMongo.eliminar(id);
-        return "eliminado";
+    public ResponseEntity eliminarPorId(@PathVariable String id){
+        ResponseEntity response = null;
+        if(pacienteService.buscar(id) == null){
+            response = new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+        else{
+            pacienteService.eliminar(id);
+            response= ResponseEntity.ok("SE ELIMINÓ EL ODONTÓLOGO CON ID " + id);
+            //(HttpStatus.NO_CONTENT);
+        }
+        return response;
     }
 
     @GetMapping("/{id}")
     public Paciente buscarPorId(@PathVariable String id){
-        return pacienteServiceMongo.buscar(id);
+        return pacienteService.buscar(id);
     }
 
     @PutMapping()
-    public ResponseEntity<Paciente> modificarOdontologo(@RequestBody Paciente paciente) {
+    public ResponseEntity<Paciente> modificarPaciente(@RequestBody Paciente paciente) {
         ResponseEntity<Paciente> response = null;
-        if (paciente.getId() != null && pacienteServiceMongo.buscar(paciente.getId()) != null)
-            response = ResponseEntity.ok(pacienteServiceMongo.editar(paciente));
+        if (paciente.getId() != null && pacienteService.buscar(paciente.getId()) != null)
+            response = ResponseEntity.ok(pacienteService.editar(paciente));
         else
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
