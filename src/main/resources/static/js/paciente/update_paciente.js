@@ -1,6 +1,5 @@
 window.addEventListener('load', function () {
-    //Buscamos y obtenemos el formulario donde estan
-    //los datos que el usuario pudo haber modificado del odontolohgo
+
     const formulario = document.querySelector('#update_paciente_form');
 
     formulario.addEventListener('submit', function (event) {
@@ -17,7 +16,7 @@ window.addEventListener('load', function () {
             dni: document.querySelector('#dni').value,
             fechaIngreso: document.querySelector('#fechaIngreso').value,
             domicilio: {
-            id: document.querySelector('#paciente_id').value,
+            id: document.querySelector('#domicilio_id').value,
                  calle: document.querySelector('#calle').value,
                  numero: document.querySelector('#numero').value,
                  localidad: document.querySelector('#localidad').value,

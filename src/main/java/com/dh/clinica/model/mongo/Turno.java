@@ -1,19 +1,21 @@
 package com.dh.clinica.model.mongo;
 
-
-
-import org.apache.tomcat.jni.Time;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalTime;
 import java.util.Date;
+
 @Document(collection = "turnos")
 public class Turno {
     @Id
     private String id;
+
     private Date fecha;
-    private Time hora;
+    @DateTimeFormat(pattern = "HH:mm:ss")
+    private LocalTime hora;
     @DBRef
     private Paciente paciente;
     @DBRef
@@ -23,7 +25,7 @@ public class Turno {
     }
 
 
-    public Turno(Date fecha, Time hora, Paciente paciente, Odontologo odontologo) {
+    public Turno(Date fecha, LocalTime hora, Paciente paciente, Odontologo odontologo) {
         this.fecha = fecha;
         this.hora = hora;
         this.paciente = paciente;
@@ -46,11 +48,11 @@ public class Turno {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 

@@ -23,6 +23,7 @@ public class Paciente {
     @Field("domicilio_id")
     private Domicilio domicilio;
 
+    @DBRef()
     private Set<Turno> turnos;
 
     public Paciente() {
