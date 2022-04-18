@@ -2,6 +2,7 @@ package com.dh.clinica.model;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class PacienteDTO {
@@ -9,7 +10,7 @@ public class PacienteDTO {
     private String nombre;
     private String apellido;
     private String dni;
-    private Date fechaIngreso;
+    private LocalDate fechaIngreso;
     //    @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
     private Domicilio domicilio;
     private String email;
@@ -46,11 +47,11 @@ public class PacienteDTO {
         this.dni = dni;
     }
 
-    public Date getFechaIngreso() {
+    public LocalDate getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(LocalDate fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -22,24 +23,24 @@ public class Turno {
     @JoinColumn(name = "odontologo_id")
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
     private Odontologo odontologo;
-    private Date fecha;
+    private LocalDate fecha;
     private Time hora;
 
     public Turno() {
     }
 
-    public Turno(Paciente paciente, Odontologo odontologo, Date fecha, Time hora) {
+    public Turno(Paciente paciente, Odontologo odontologo, LocalDate fecha, Time hora) {
         this.paciente = paciente;
         this.odontologo = odontologo;
         this.fecha = fecha;
         this.hora = hora;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

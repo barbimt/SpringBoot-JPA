@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,8 +21,8 @@ public class Paciente {
     private String apellido;
     private String dni;
     private String email;
-    @Temporal(TemporalType.DATE)
-    private Date fechaIngreso;
+
+    private LocalDate fechaIngreso;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "domicilio_id", referencedColumnName = "id")
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
@@ -34,7 +35,7 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(Integer id, String nombre, String apellido, String dni,String email, Date fechaIngreso, Domicilio domicilio) {
+    public Paciente(Integer id, String nombre, String apellido, String dni,String email, LocalDate fechaIngreso, Domicilio domicilio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -44,7 +45,7 @@ public class Paciente {
         this.email = email;
     }
 
-    public Paciente(String nombre, String apellido, String dni, Date fechaIngreso, Domicilio domicilio, String email) {
+    public Paciente(String nombre, String apellido, String dni, LocalDate fechaIngreso, Domicilio domicilio, String email) {
 
         this.nombre = nombre;
         this.apellido = apellido;
@@ -88,11 +89,11 @@ public class Paciente {
         this.dni = dni;
     }
 
-    public Date getFechaIngreso() {
+    public LocalDate getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(LocalDate fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 

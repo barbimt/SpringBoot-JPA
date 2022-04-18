@@ -3,11 +3,12 @@ package com.dh.clinica.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class TurnoDTO {
     private Integer id;
-    private Date fecha;
+    private LocalDate fecha;
     private Time hora;
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
     private Paciente paciente;
@@ -22,11 +23,11 @@ public class TurnoDTO {
 //        this.id = id;
 //    }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

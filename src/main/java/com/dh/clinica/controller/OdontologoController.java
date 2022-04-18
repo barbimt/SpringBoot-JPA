@@ -1,5 +1,7 @@
 package com.dh.clinica.controller;
 
+import com.dh.clinica.exceptions.BadRequestException;
+import com.dh.clinica.exceptions.ResourceNotFoundException;
 import com.dh.clinica.model.Odontologo;
 
 import com.dh.clinica.model.OdontologoDTO;
@@ -9,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.module.ResolutionException;
 import java.util.List;
 import java.util.Set;
 
@@ -21,41 +24,26 @@ public class OdontologoController {
 
     @PostMapping
     public ResponseEntity<Odontologo> crearOdontologo(@RequestBody OdontologoDTO odontologoDTO) {
-
         return ResponseEntity.ok(odontologoService.crearOdontologo(odontologoDTO));
-
     }
 
     @GetMapping("/{id}")
     public OdontologoDTO buscarPorId(@PathVariable Integer id){
+
         return odontologoService.leerOdontologo(id);
     }
 
 
     @PutMapping()
-    public ResponseEntity<Odontologo> modificarOdontologo(@RequestBody OdontologoDTO odontologoDTO) {
-        ResponseEntity<Odontologo> response = null;
-        if (odontologoDTO.getId() != null && odontologoService.leerOdontologo(odontologoDTO.getId()) != null)
-            response = ResponseEntity.ok(odontologoService.modificarOdontologo(odontologoDTO));
-        else
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        return response;
+    public ResponseEntity<Odontologo> modificarOdontologo(@RequestBody OdontologoDTO odontologoDTO) throws ResourceNotFoundException {
+        return ResponseEntity.ok(odontologoService.modificarOdontologo(odontologoDTO));
+
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity eliminarPorId(@PathVariable Integer id){
-        ResponseEntity response = null;
-        if(odontologoService.leerOdontologo(id) == null){
-            response = new ResponseEntity(HttpStatus.NOT_FOUND);
-
-        }
-        else{
+    public ResponseEntity eliminarPorId(@PathVariable Integer id) throws BadRequestException, ResourceNotFoundException {
             odontologoService.eliminarOdontologo(id);
-            response= ResponseEntity.ok("SE ELIMINÓ EL ODONTÓLOGO CON ID " + id);
-                    //(HttpStatus.NO_CONTENT);
-
-        }
-        return response;
+            return ResponseEntity.ok("Se eliminó el odontólogo con ID: " + id);
     }
 
     @GetMapping

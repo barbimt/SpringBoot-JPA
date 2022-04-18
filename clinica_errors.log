@@ -1,0 +1,31 @@
+[2022-04-1611:21:43] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 6
+[2022-04-1611:22:22] [ ERROR] [GlobalExceptionHandler:17] Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "p"
+[2022-04-1611:22:49] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 6
+[2022-04-1611:23:43] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 6
+[2022-04-1611:23:48] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 0
+[2022-04-1611:23:51] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 1
+[2022-04-1611:42:36] [ ERROR] [GlobalExceptionHandler:17] No se puede actualizar el odontólogo ID: 3
+[2022-04-1611:42:55] [ ERROR] [GlobalExceptionHandler:17] No se puede actualizar el odontólogo ID: 6
+[2022-04-1611:47:27] [ ERROR] [GlobalExceptionHandler:17] No se puede actualizar el odontólogo ID: 6
+[2022-04-1611:47:39] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 1
+[2022-04-1611:48:21] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 1
+[2022-04-1611:48:34] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 1
+[2022-04-1611:49:27] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 1
+[2022-04-1611:56:40] [ ERROR] [GlobalExceptionHandler:17] No se puede actualizar el odontólogo ID: 4
+[2022-04-1611:57:56] [ ERROR] [GlobalExceptionHandler:17] No se puede actualizar el odontólogo ID: 4
+[2022-04-1611:58:02] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 1
+[2022-04-1611:58:07] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 4
+[2022-04-1611:59:33] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 4
+[2022-04-1611:59:54] [ ERROR] [GlobalExceptionHandler:17] No se puede actualizar el odontólogo ID: 4
+[2022-04-1612:00:55] [ ERROR] [GlobalExceptionHandler:17] No se puede actualizar el odontólogo ID: 4
+[2022-04-1612:04:05] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 4
+[2022-04-1612:05:11] [ ERROR] [GlobalExceptionHandler:17] No existe un odontólogo con el ID: 4
+[2022-04-1721:49:25] [ ERROR] [GlobalExceptionHandler:22] No existe ningún odontólogo con id: 1
+[2022-04-1721:49:41] [ ERROR] [GlobalExceptionHandler:16] El id del odontólogo no puede ser null ni negativo
+[2022-04-1721:49:44] [ ERROR] [GlobalExceptionHandler:16] El id del odontólogo no puede ser null ni negativo
+[2022-04-1721:50:42] [ ERROR] [GlobalExceptionHandler:16] El id del odontólogo no puede ser null ni negativo
+[2022-04-1721:51:40] [ ERROR] [GlobalExceptionHandler:16] El id del odontólogo no puede ser null ni negativo
+[2022-04-1721:51:52] [ ERROR] [GlobalExceptionHandler:16] El id del odontólogo no puede ser null ni negativo
+[2022-04-1721:52:15] [ ERROR] [GlobalExceptionHandler:22] No existe ningún odontólogo con id: 4
+[2022-04-1721:52:24] [ ERROR] [GlobalExceptionHandler:22] No existe ningún odontólogo con id: 9
+[2022-04-1721:52:26] [ ERROR] [GlobalExceptionHandler:16] El id del odontólogo no puede ser null ni negativo
