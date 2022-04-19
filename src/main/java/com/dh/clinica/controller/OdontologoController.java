@@ -4,15 +4,12 @@ import com.dh.clinica.exceptions.BadRequestException;
 import com.dh.clinica.exceptions.ResourceNotFoundException;
 import com.dh.clinica.model.Odontologo;
 
-import com.dh.clinica.model.OdontologoDTO;
+import com.dh.clinica.model.dto.OdontologoDTO;
 import com.dh.clinica.service.OdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.module.ResolutionException;
-import java.util.List;
 import java.util.Set;
 
 

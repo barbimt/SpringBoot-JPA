@@ -1,9 +1,9 @@
-package com.dh.clinica.service;
+package com.dh.clinica.service.IService;
 
 import com.dh.clinica.exceptions.BadRequestException;
 import com.dh.clinica.exceptions.ResourceNotFoundException;
 import com.dh.clinica.model.Odontologo;
-import com.dh.clinica.model.OdontologoDTO;
+import com.dh.clinica.model.dto.OdontologoDTO;
 
 import java.util.Set;
 

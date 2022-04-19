@@ -1,9 +1,11 @@
 package com.dh.clinica.service;
 
 import com.dh.clinica.model.*;
+import com.dh.clinica.model.dto.TurnoDTO;
 import com.dh.clinica.repository.impl.OdontologoRepository;
 import com.dh.clinica.repository.impl.PacienteRepository;
 import com.dh.clinica.repository.impl.TurnoRepository;
+import com.dh.clinica.service.IService.ITurnoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

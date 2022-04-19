@@ -1,5 +1,7 @@
-package com.dh.clinica.model;
+package com.dh.clinica.model.dto;
 
+import com.dh.clinica.model.Odontologo;
+import com.dh.clinica.model.Paciente;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.sql.Time;

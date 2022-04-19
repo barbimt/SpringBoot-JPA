@@ -1,4 +1,4 @@
-package com.dh.clinica.model;
+package com.dh.clinica.model.dto;
 
 public class OdontologoDTO {
     private Integer id;
@@ -39,4 +39,7 @@ public class OdontologoDTO {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
+
+
+
 }

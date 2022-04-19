@@ -1,7 +1,7 @@
-package com.dh.clinica.service;
+package com.dh.clinica.service.IService;
 
 import com.dh.clinica.model.Turno;
-import com.dh.clinica.model.TurnoDTO;
+import com.dh.clinica.model.dto.TurnoDTO;
 
 import java.util.Set;
 

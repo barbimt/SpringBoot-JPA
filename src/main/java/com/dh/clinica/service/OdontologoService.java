@@ -3,8 +3,9 @@ package com.dh.clinica.service;
 import com.dh.clinica.exceptions.BadRequestException;
 import com.dh.clinica.exceptions.ResourceNotFoundException;
 import com.dh.clinica.model.Odontologo;
-import com.dh.clinica.model.OdontologoDTO;
+import com.dh.clinica.model.dto.OdontologoDTO;
 import com.dh.clinica.repository.impl.OdontologoRepository;
+import com.dh.clinica.service.IService.IOdontologoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class OdontologoService implements IOdontologoService{
+public class OdontologoService implements IOdontologoService {
     @Autowired
      OdontologoRepository odontologoRepository;
 

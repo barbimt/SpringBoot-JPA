@@ -1,4 +1,6 @@
-package com.dh.clinica.model;
+package com.dh.clinica.model.dto;
+
+import com.dh.clinica.model.Domicilio;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;

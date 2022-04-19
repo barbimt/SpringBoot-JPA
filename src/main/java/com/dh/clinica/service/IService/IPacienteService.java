@@ -1,7 +1,7 @@
-package com.dh.clinica.service;
+package com.dh.clinica.service.IService;
 
 import com.dh.clinica.model.Paciente;
-import com.dh.clinica.model.PacienteDTO;
+import com.dh.clinica.model.dto.PacienteDTO;
 
 import java.util.Set;
 

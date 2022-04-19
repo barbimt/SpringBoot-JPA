@@ -1,5 +1,6 @@
-package com.dh.clinica.login;
+package com.dh.clinica.config;
 
+import com.dh.clinica.login.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,19 +25,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/turnos/**").hasAuthority("USER")
-                .antMatchers("/odontologos/**", "/pacientes/**", "/turnos/**").hasAuthority("ADMIN")
-                .antMatchers("/index.html","/turnos.html").hasAuthority("USER")
-                .antMatchers("/odontologos.html", "/index.html","/alta-turnos.html","/turnos.html","/alta-pacientes.html","/pacientes.html").hasAuthority("ADMIN")
+                .antMatchers("/odontologos/**", "/pacientes/**").hasAuthority("ADMIN")
+                .antMatchers("/alta-odontologos.html", "/alta-pacientes.html", "").hasAuthority("ADMIN")
+                .antMatchers( "/index.html","/turnos.html", "/alta-turnos.html").hasAuthority("USER")
+                .antMatchers( "/index.html", "/pacientes.html", "/alta-pacientes.html", "/odontologos.html", "/alta-odontologos.html").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .permitAll()
                 .and()
                 .logout()
+                .logoutSuccessUrl("/login")
                 .permitAll()
                 .and()
-                .exceptionHandling().accessDeniedPage("/403");
+                .exceptionHandling().accessDeniedPage("/403.html");
 
     }
 
