@@ -53,6 +53,7 @@ class OdontologoServiceTest {
     }
 
     @Test
+    @Order(3)
     public void eliminarOdontologoTest() throws BadRequestException, ResourceNotFoundException {
         OdontologoDTO odontologoGuardado = odontologoService.leerOdontologo(1);
         assertNotNull(odontologoService.leerOdontologo(odontologoGuardado.getId()));

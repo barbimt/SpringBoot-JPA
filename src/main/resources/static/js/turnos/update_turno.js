@@ -2,25 +2,26 @@ window.addEventListener('load', function () {
     //Buscamos y obtenemos el formulario donde estan
     //los datos que el usuario pudo haber modificado del odontolohgo
     const formulario = document.querySelector('#update_turno_form');
-
+    const pacienteList = document.querySelector("#paciente-list")
+    const odontologoList = document.querySelector("#odontologo-list")
     formulario.addEventListener('submit', function (event) {
-        let peliculaId = document.querySelector('#turno_id').value;
+      //  let peliculaId = document.querySelector('#turno_id').value;
 
         //creamos un JSON que tendrá los datos del odontologo
         //a diferencia de un odontologo nuevo en este caso enviamos el id
         //para poder identificarlo y modificarlo para no cargarlo como nuevo
         const formData = {
-                         fecha: document.querySelector('#fecha').value,
-                                         hora: document.querySelector('#hora').value,
-                                         paciente: {
-                                           id: document.querySelector('#paciente_id').value
-                                         },
-                                         odontologo: {
-                                           id: document.querySelector('#odontologo_id').value
-                                         }
+                        id: $("#turno_id").val(),
+                                   fecha: $('#fecha').val(),
+                                   hora: $('#hora').val(),
+                                   paciente: {
+                                     id:  $('#paciente-list').val(),
+                                   },
+                                   odontologo: {
+                                     id:$('#odontologo-list').val(),
+                                   }
 
         };
-
         //invocamos utilizando la función fetch la API odontologos con el método PUT que modificará
         //al odontologo que enviaremos en formato JSON
         const url = '/turnos';
@@ -36,7 +37,34 @@ window.addEventListener('load', function () {
             location.reload();
 
     })
+
+    const urlPaciente = '/pacientes';
+    const settingsPaciente = {
+      method: 'GET'
+    }
+    fetch(urlPaciente,settingsPaciente)
+    .then(response => response.json())
+    .then(data => {
+    //recorremos la colección de odontologos del JSON
+       for(paciente of data){
+            pacienteList.appendChild(new Option(paciente.id + " " + paciente.nombre + " " + paciente.apellido, `${paciente.id}`))  
+      };
+    })
+    
+    const urlOdontologo = '/odontologos';
+    const settingsOdontologo = {
+      method: 'GET'
+    }
+    fetch(urlOdontologo,settingsOdontologo)
+    .then(response => response.json())
+    .then(data => {
+    //recorremos la colección de odontologos del JSON
+       for(odontologo of data){
+            odontologoList.appendChild(new Option(odontologo.id + " " + odontologo.nombre + " " + odontologo.apellido, `${odontologo.id}`))  
+      };
+    })
  })
+
 
     //Es la funcion que se invoca cuando se hace click sobre el id de un odontologo del listado
     //se encarga de llenar el formulario con los datos del odontologo
@@ -54,8 +82,8 @@ window.addEventListener('load', function () {
               document.querySelector('#turno_id').value = turno.id;
            document.querySelector('#fecha').value = "";
                   document.querySelector('#hora').value = "";
-                  document.querySelector('#paciente_id').value = "";
-                  document.querySelector('#odontologo_id').value = "";
+                  document.querySelector('#paciente-list').value = "";
+                  document.querySelector('#odontologo-list').value = "";
 
               //el formulario por default esta oculto y al editar se habilita
               document.querySelector('#div_turno_updating').style.display = "block";
