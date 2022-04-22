@@ -45,7 +45,7 @@ window.addEventListener('load', function () {
             turnoRow.innerHTML = '<td>' + updateButton + '</td>' +
                     '<td class=\"td_fecha\">' + new Date(turno.fecha).toISOString().slice(0,10)  + '</td>' +
                     '<td class=\"td_hora\">' + turno.hora + '</td>' +
-                    '<td class=\"td_paciente_id\">' + turno.paciente.id + " " + turno.paciente.nombre.charAt(0).toUpperCase() + turno.paciente.nombre.slice(1) + " " + turno.paciente.apellido.charAt(0).toUpperCase() + turno.paciente.nombre.slice(1) + '</td>' +
+                    '<td class=\"td_paciente_id\">' + turno.paciente.id + " " + turno.paciente.nombre.charAt(0).toUpperCase() + turno.paciente.nombre.slice(1) + " " + turno.paciente.apellido.charAt(0).toUpperCase() + turno.paciente.apellido.slice(1) + '</td>' +
                     '<td class=\"td_odontologo_id\">' +turno.odontologo.id + " " + turno.odontologo.nombre.charAt(0).toUpperCase() + turno.odontologo.nombre.slice(1) + " " + turno.odontologo.apellido.charAt(0).toUpperCase() + turno.odontologo.apellido.slice(1) + '</td>' +
                     '<td>' + deleteButton + '</td>';
         };
