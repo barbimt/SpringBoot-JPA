@@ -27,13 +27,14 @@ $(document).ready(function(){
                                             '<strong> odontologo actualizado </strong></div>'
 
                  
-                    $("#tr_" + odontologoId + " td.td_first_name").text(odontologo.nombre.toUpperCase());
-                    $("#tr_" + odontologoId + " td.td_last_name").text(odontologo.apellido.toUpperCase());
+                    $("#tr_" + odontologoId + " td.td_first_name").text(normalizarString(odontologo.nombre));
+                    $("#tr_" + odontologoId + " td.td_last_name").text(normalizarString(odontologo.apellido));
                     $("#tr_" + odontologoId + " td.td_matricula").text(odontologo.matricula);
 
                     $("#response").empty();
                     $("#response").append(successAlert);
                     $("#response").css({"display": "block"});
+                    location.reload();
                 },
 
                 error: function (response) {
@@ -73,4 +74,11 @@ $(document).ready(function(){
             }
         });        
     });
+
+    function normalizarString(nombre) {
+        let nombreNormalizado = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+        
+          return nombreNormalizado
+      }
+      
 });

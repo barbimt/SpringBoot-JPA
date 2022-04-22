@@ -20,8 +20,8 @@ $(document).ready(function(){
                 let tr_id = 'tr_' + odontologo.id;
                 let odontologoRow = '<tr id=\"' + tr_id + "\"" + '>' +
                           '<td>' + get_More_Info_Btn + '</td>' +
-                          '<td class=\"td_first_name\">' + odontologo.nombre.toUpperCase() + '</td>' +
-                          '<td class=\"td_last_name\">' + odontologo.apellido + '</td>' +
+                          '<td class=\"td_first_name\">' + normalizarString(odontologo.nombre) + '</td>' +
+                          '<td class=\"td_last_name\">' + normalizarString(odontologo.apellido) + '</td>' +
                           '<td class=\"td_matricula\">' + odontologo.matricula + '</td>' +
                             '<td>' + deleteButton + '</td>' +
 
@@ -34,7 +34,13 @@ $(document).ready(function(){
               console.log("ERROR: ", e);
             }
         });
-    })();        
+    })();     
+    
+    function normalizarString(nombre) {
+      let nombreNormalizado = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+      
+        return nombreNormalizado
+    }
     
     (function(){
         let pathname = window.location.pathname;

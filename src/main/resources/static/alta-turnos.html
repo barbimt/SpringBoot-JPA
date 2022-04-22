@@ -25,33 +25,32 @@
 
                 <div class="form-group">
                     <label class="control-label" for="fecha">Fecha:</label>
-                    <input type="text" class="form-control" id="fecha"
-                           placeholder="Fecha"
-                           name="fecha" required></input>
+                    <input 
+            
+                    type="date" class="form-control" id="fecha"
+                           placeholder="Ingrese la fecha"
+                           name="fecha" required>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label" for="hora">Hora:</label>
                     <input type="text" class="form-control" id="hora"
-                           placeholder="hora"
-                           name="hora" required></input>
+                           placeholder="10:00:00"
+                           step="00:15" interval="300" name="hora" required>
                 </div>
+                
+                <div class="form-group">
+                    <label class="control-label" for="paciente">Paciente:</label>
+                    <select type="text" class="form-control" id="paciente-list"
+                            placeholder="Ingrese le paciente"
+                            name="paciente" required></select>
 
-                <div class="form-group">
-                    <label >ID Paciente:</label>
-               
-                    <select class="form-control" id="paciente-list">
-                    </select>
-                
-                </div>
-                
-                <div class="form-group">
-                    <label >ID Odontólogo:</label>
-                
-                    <select class="form-control" id="odontologo-list">
-                    </select>
-             
-                </div>
+                            <div class="form-group">
+                                <label class="control-label" for="odontologo">Odontologo:</label>
+                                <select type="text" class="form-control" id="odontologo-list"
+                                        placeholder="Ingrese el odontologo"
+                                        name="odontologo" required></select>
+                            </div>
 
                 <button type="submit" class="btn btn-danger"
                         id="btn-add-new-turno">Guardar</button>

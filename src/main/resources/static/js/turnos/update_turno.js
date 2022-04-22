@@ -80,10 +80,10 @@ window.addEventListener('load', function () {
           console.log(data)
               let turno = data;
               document.querySelector('#turno_id').value = turno.id;
-           document.querySelector('#fecha').value = "";
-                  document.querySelector('#hora').value = "";
-                  document.querySelector('#paciente-list').value = "";
-                  document.querySelector('#odontologo-list').value = "";
+           document.querySelector('#fecha').value = turno.fecha;
+                  document.querySelector('#hora').value = turno.hora;
+                  document.querySelector('#paciente-list').value = turno.paciente.id;
+                  document.querySelector('#odontologo-list').value = turno.odontologo.id;
 
               //el formulario por default esta oculto y al editar se habilita
               document.querySelector('#div_turno_updating').style.display = "block";

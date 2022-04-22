@@ -21,7 +21,7 @@ $(document).ready(function() {
                console.log("desde post " + response)
                 let successAlert = '<div class="alert alert-success alert-dismissible">' +
                     '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                    '<strong></strong> odontologo agregado </div>'
+                    '<strong></strong> Odontólogo agregado </div>'
                 $("#response").append(successAlert);
                 $("#response").css({"display": "block"});
 

@@ -43,8 +43,8 @@ window.addEventListener('load', function () {
             //luego los datos del odontologo
             //como ultima columna el boton eliminar
             pacienteRow.innerHTML = '<td>' + updateButton + '</td>' +
-                    '<td class=\"td_nombre\">' + paciente.nombre.toUpperCase() + '</td>' +
-                    '<td class=\"td_apellido\">' + paciente.apellido.toUpperCase() + '</td>' +
+                    '<td class=\"td_nombre\">' + paciente.nombre.charAt(0).toUpperCase() + paciente.nombre.slice(1) + '</td>' +
+                    '<td class=\"td_apellido\">' + paciente.apellido.charAt(0).toUpperCase() + paciente.apellido.slice(1) + '</td>' +
                     '<td class=\"td_dni\">' + paciente.dni + '</td>' +
                     '<td class=\"td_fechaIngreso\">' + new Date(paciente.fechaIngreso).toISOString().slice(0,10)+ '</td>' +
                     '<td class=\"td_domicilio\"> Calle ' + paciente.domicilio.calle + ' ' + paciente.domicilio.numero + '</td>' +
@@ -56,6 +56,8 @@ window.addEventListener('load', function () {
 
     })
     })
+
+
 
     (function(){
       let pathname = window.location.pathname;

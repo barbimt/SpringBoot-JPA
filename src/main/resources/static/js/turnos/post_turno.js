@@ -88,9 +88,8 @@ window.addEventListener("load", function () {
       //recorremos la colección de odontologos del JSON
       for (paciente of data) {
         pacienteList.appendChild(
-          new Option(
-            paciente.id + " " + paciente.nombre + " " + paciente.apellido,
-            `${paciente.id}` )
+          new Option(paciente.nombre + " " + paciente.apellido,
+            paciente.id )
         );
       }
     });
@@ -104,14 +103,7 @@ window.addEventListener("load", function () {
     .then((data) => {
       //recorremos la colección de odontologos del JSON
       for (odontologo of data) {
-        odontologoList.appendChild(
-          new Option(
-            odontologo.id +
-              " " +
-              odontologo.nombre +
-              " " +
-              odontologo.apellido, `${odontologo.id}`
-          )
+        odontologoList.appendChild(new Option(odontologo.nombre +" " +odontologo.apellido, odontologo.id)
         );
       }
     });
