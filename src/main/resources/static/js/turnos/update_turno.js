@@ -5,8 +5,7 @@ window.addEventListener('load', function () {
     const pacienteList = document.querySelector("#paciente-list")
     const odontologoList = document.querySelector("#odontologo-list")
     formulario.addEventListener('submit', function (event) {
-      //  let peliculaId = document.querySelector('#turno_id').value;
-
+        //  let peliculaId = document.querySelector('#turno_id').value;
         //creamos un JSON que tendrá los datos del odontologo
         //a diferencia de un odontologo nuevo en este caso enviamos el id
         //para poder identificarlo y modificarlo para no cargarlo como nuevo
@@ -65,10 +64,6 @@ window.addEventListener('load', function () {
     })
  })
 
-
-    //Es la funcion que se invoca cuando se hace click sobre el id de un odontologo del listado
-    //se encarga de llenar el formulario con los datos del odontologo
-    //que se desea modificar
     function findBy(id) {
           const url = '/turnos'+"/"+id;
           const settings = {

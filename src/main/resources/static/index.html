@@ -5,20 +5,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+    <script src="https://kit.fontawesome.com/6f171861a3.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <!--Navbar-->
 <nav class=" mb-2 navbar navbar-expand-lg navbar-dark" style="background-color:#2bbbad;">
     <h3 style="color:white">Clinica Odontológica</h3>
+    
+    <i class="fa-inverse  fa-2x fa-solid fa-tooth mx-2"></i>
    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
     aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
     <ul class="navbar-nav ml-auto  ">
       <li class="nav-item active  ">
@@ -27,51 +33,76 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Lista Odontólogos</a>
+        <a class="nav-link" href="/odontologos.html">Lista Odontólogos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Lista Pacientes</a>
+        <a class="nav-link" href="/pacientes.html">Lista Pacientes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Lista Turnos</a>
+        <a class="nav-link" href="/turnos.html">Lista Turnos</a>
       </li>
       </ul>
     </div>
 </nav>
 
-  <!-- <div class="col-md-4">
+<div class=" d-flex mr-auto justify-content-center my-5">
+
+  <div class="col-md-3 d-flex justify-content-center align-items-center" >
     <div class="card border-info mb-3" style="max-width: 18rem;">
-      <div class="card-header">Header   </div>
+      <div class="card-header text-center">
+        <h5> Administración Odontólogos </h5>
+         </div>
         <div class="card-body">
-          <h5 class="card-title">Info card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <li class=" list-group-item list-group-item-info text-center">
+            <i class="fa-solid fa-circle-info"></i>
+            Roles permitidos: 
+            ADMIN</li>
+          <ul class=" list-group list-group-flush text-center">
+            <li class=" list-group-item link-info mt-2"> <a class="alert-link" href="/alta-odontologos.html">Crear un odontólogo</a></li>
+            <li class="list-group-item"> <a class="nav-link" href="/odontologos.html">Modificar/Borrar un odontólogo</a></li>
+          </ul>
     </div>
   </div>
   </div>
-  <div class="col-md-4">
-    <div class="card border-info mb-3" style="max-width: 18rem;">
-      <div class="card-header">Header   </div>
+
+  <div class="col-md-3 d-flex justify-content-center align-items-center">
+    <div class="card border-info mb-3" style="max-width: 18rem">
+      <div class="card-header text-center">Administración Pacientes   </div>
         <div class="card-body">
-          <h5 class="card-title">Info card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title text-center">ROL ADMIN</h5>
+          <ul class="list-group list-group-flush text-center">
+            <li class="list-group-item"> <a class="nav-link" href="/alta-pacientes.html">Crear un paciente</a></li>
+            <li class="list-group-item"> <a class="nav-link" href="/pacientes.html">Modificar/Borrar un paciente</a></li>
+
+          </ul>
     </div>
   </div>
   </div>
-    
-    <div class="col-md-4">.col-md-4</div>
+
+  <div class="col-md-3 d-flex justify-content-center align-items-center">
+    <div class="card border-info mb-3" style="max-width: 18rem">
+      <div class="card-header text-center">Administración Turnos   </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">ROL ADMIN/USER</h5>
+          <ul class="list-group list-group-flush text-center">
+            <li class="list-group-item"> <a class="nav-link" href="/alta-turnos.html">Crear un turno</a></li>
+            <li class="list-group-item"> <a class="nav-link" href="/turnos.html">Modificar/Borrar un turno</a></li>
+
+          </ul>
+    </div>
   </div>
-</div> -->
-<div class="container">
-    <ul class="nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link" href="/odontologos.html">Administracion Odontologos</a>
+  </div>
 
-            <a class="nav-link" href="/pacientes.html">Administracion Pacientes</a>
-            <a class="nav-link" href="/turnos.html">Administracion Turnos</a>
+    </div>
 
-            <a class="nav-link"  href="/logout" style="background-color: red; color: white;">Cerrar sesión</a>
-        </li>
-    </ul>
+  
+
+<div class="container-sm text-center">
+  
+ 
+    <a class= "btn btn-outline-danger " href="/logout" >Cerrar sesión</a>
+
+   
    
     <hr>
 </div>

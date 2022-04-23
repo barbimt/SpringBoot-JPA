@@ -10,7 +10,6 @@ $(document).ready(function(){
             apellido :  $("#apellido").val(),
             matricula: $("#matricula").val(),
         }
-            
             $.ajax({
                 url: '/odontologos',
                 type: 'PUT',
@@ -36,7 +35,6 @@ $(document).ready(function(){
                     $("#response").css({"display": "block"});
                     location.reload();
                 },
-
                 error: function (response) {
                     let errorAlert = '<div class="alert alert-danger alert-dismissible">' + 
                                         '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
@@ -77,8 +75,7 @@ $(document).ready(function(){
 
     function normalizarString(nombre) {
         let nombreNormalizado = nombre.charAt(0).toUpperCase() + nombre.slice(1);
-        
-          return nombreNormalizado
+        return nombreNormalizado
       }
       
 });

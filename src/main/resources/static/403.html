@@ -12,16 +12,37 @@
 </head>
 
 <body>
-
-    <div class="container-fluid">
-        <ul class="nav nav-pills">
-  <li class="nav-item">
-            <a class="nav-link"  href="/index.html">Inicio</a>
-        </li>
-        <li  class="nav-item">
-            <a class="nav-link" href="/logout">Cerrar sesión</a>
-        </li>
-    </ul>
+    <nav class=" mb-2 navbar navbar-expand-lg navbar-dark" style="background-color:#2bbbad;">
+        <h3 style="color:white">Clinica Odontológica</h3>
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+        aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse ml-3" id="navbarSupportedContent-333">
+        <ul class="navbar-nav mr-auto  ">
+          <li class="nav-item ">
+            <a class="nav-link" style="font-size:large;" href="/index.html">Volver al Inicio
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          </ul>
+          <ul class="navbar-nav ml-auto ">
+          <li class="nav-item">
+            <a class="nav-link" href="/odontologos.html">Lista Odontólogos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pacientes.html">Lista Pacientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/turnos.html">Lista Turnos</a>
+          </li>
+          </ul>
+        </div>
+    </nav>
+    <div class="container-fluid d-flex justify-content-center align-items-center my-5">
+        
     <div class="alert alert-primary d-flex align-items-center justify-content-center" role="alert">
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2  " viewBox="0 0 16 16" role="img" aria-label="Warning:">
           <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
@@ -29,8 +50,19 @@
         <div>
            No tienes permisos para esto!
             Solo el ADMIN puede ingresar
+        
         </div>
       </div>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-pills  justify-content-center align-items-center">
+            <li class="nav-item">
+                <a class="nav-link"  href="/logout" style="background-color: red; color: white;">Cerrar sesión</a>
+            </li>
+        </ul>
+       
+       
     </div>
 </body>
 </html>

@@ -41,7 +41,6 @@ window.addEventListener("load", function () {
         document.querySelector("#response").innerHTML = successAlert;
         document.querySelector("#response").style.display = "block";
         resetUploadForm();
-
       })
       
       .catch((error) => {
