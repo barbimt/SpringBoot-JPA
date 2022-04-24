@@ -34,7 +34,7 @@ class OdontologoServiceTest {
 
     @Test
     @Order(1)
-    void crearOdontologoTest(){
+    void crearOdontologoTest() throws BadRequestException, ResourceNotFoundException {
         OdontologoDTO odontologoDTO = new OdontologoDTO();
         odontologoDTO.setMatricula("123");
         odontologoDTO.setApellido("Torres");
@@ -58,9 +58,7 @@ class OdontologoServiceTest {
         OdontologoDTO odontologoGuardado = odontologoService.leerOdontologo(1);
         assertNotNull(odontologoService.leerOdontologo(odontologoGuardado.getId()));
         odontologoService.eliminarOdontologo(1);
-        assertNull(odontologoService.leerOdontologo(1));
-        //assertThrows(com.dh.clinica.exceptions.BadRequestException.class/*org.hibernate.LazyInitializationException.class*//*ConfigDataResourceNotFoundException.class*/, () -> odontologoService.leerOdontologo(odontologoGuardado.getId()));
-
+        assertThrows(com.dh.clinica.exceptions.ResourceNotFoundException.class,() -> odontologoService.leerOdontologo(1));
     }
 
 

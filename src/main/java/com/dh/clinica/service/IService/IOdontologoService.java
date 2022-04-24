@@ -8,9 +8,9 @@ import com.dh.clinica.model.dto.OdontologoDTO;
 import java.util.Set;
 
 public interface IOdontologoService {
-    public Odontologo crearOdontologo(OdontologoDTO odontologoDTO);
-    public OdontologoDTO leerOdontologo(Integer id);
-    public Odontologo modificarOdontologo(OdontologoDTO odontologoDTO) throws ResourceNotFoundException;
+    public Odontologo crearOdontologo(OdontologoDTO odontologoDTO) throws BadRequestException;
+    public OdontologoDTO leerOdontologo(Integer id)throws ResourceNotFoundException;
+    public Odontologo modificarOdontologo(OdontologoDTO odontologoDTO) throws BadRequestException, ResourceNotFoundException;
     public void eliminarOdontologo(Integer id) throws BadRequestException, ResourceNotFoundException;
     Set<OdontologoDTO> leerTodos();
 }

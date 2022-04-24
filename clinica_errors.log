@@ -29,3 +29,25 @@
 [2022-04-1721:52:15] [ ERROR] [GlobalExceptionHandler:22] No existe ningún odontólogo con id: 4
 [2022-04-1721:52:24] [ ERROR] [GlobalExceptionHandler:22] No existe ningún odontólogo con id: 9
 [2022-04-1721:52:26] [ ERROR] [GlobalExceptionHandler:16] El id del odontólogo no puede ser null ni negativo
+[2022-04-2321:39:22] [ ERROR] [GlobalExceptionHandler:22] No se encontró el odontologo
+[2022-04-2321:44:09] [ ERROR] [GlobalExceptionHandler:22] No se puede actualizar el odontólogo ID: 4
+[2022-04-2409:58:46] [ ERROR] [GlobalExceptionHandler:22] No se puede actualizar el odontólogo ID: 2
+[2022-04-2410:01:03] [ ERROR] [GlobalExceptionHandler:16] No se puede crear el odontólogo
+[2022-04-2410:01:12] [ ERROR] [GlobalExceptionHandler:16] No se puede crear el odontólogo
+[2022-04-2410:01:49] [ ERROR] [GlobalExceptionHandler:22] No se puede actualizar el odontólogo ID: 5
+[2022-04-2410:07:39] [ ERROR] [GlobalExceptionHandler:22] No se puede actualizar el odontólogo ID: 8
+[2022-04-2410:08:05] [ ERROR] [GlobalExceptionHandler:22] No existe ningún odontólogo con id: 7
+[2022-04-2410:08:17] [ ERROR] [GlobalExceptionHandler:22] El odontólogo con ID:3 no existe
+[2022-04-2410:08:47] [ ERROR] [GlobalExceptionHandler:22] El odontólogo con ID:1 no existe
+[2022-04-2410:14:11] [ ERROR] [GlobalExceptionHandler:16] No se puede crear el odontólogo
+[2022-04-2410:15:11] [ ERROR] [GlobalExceptionHandler:16] No se puede crear el odontólogo
+[2022-04-2410:15:15] [ ERROR] [GlobalExceptionHandler:16] No se puede crear el odontólogo
+[2022-04-2410:15:16] [ ERROR] [GlobalExceptionHandler:16] No se puede crear el odontólogo
+[2022-04-2410:16:39] [ ERROR] [GlobalExceptionHandler:22] No se puede actualizar el odontólogo ID: 6
+[2022-04-2410:16:55] [ ERROR] [GlobalExceptionHandler:22] El odontólogo con ID:9 no existe
+[2022-04-2410:17:01] [ ERROR] [GlobalExceptionHandler:22] El odontólogo con ID:-1 no existe
+[2022-04-2410:17:12] [ ERROR] [GlobalExceptionHandler:22] No existe ningún odontólogo con id: 9
+[2022-04-2410:24:19] [ ERROR] [GlobalExceptionHandler:22] El odontólogo con ID:6 no existe
+[2022-04-2410:25:25] [ ERROR] [GlobalExceptionHandler:22] El odontólogo con ID:9 no existe
+[2022-04-2410:25:47] [ ERROR] [GlobalExceptionHandler:22] No existe ningún odontólogo con id: 9
+[2022-04-2410:25:59] [ ERROR] [GlobalExceptionHandler:22] El odontólogo con ID:1 no existe
