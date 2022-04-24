@@ -51,3 +51,4 @@
 [2022-04-2410:25:25] [ ERROR] [GlobalExceptionHandler:22] El odontólogo con ID:9 no existe
 [2022-04-2410:25:47] [ ERROR] [GlobalExceptionHandler:22] No existe ningún odontólogo con id: 9
 [2022-04-2410:25:59] [ ERROR] [GlobalExceptionHandler:22] El odontólogo con ID:1 no existe
+[2022-04-2411:39:47] [ ERROR] [GlobalExceptionHandler:16] No se puede crear el odontólogo

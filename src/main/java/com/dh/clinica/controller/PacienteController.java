@@ -3,6 +3,7 @@ package com.dh.clinica.controller;
 import com.dh.clinica.model.Paciente;
 import com.dh.clinica.model.dto.PacienteDTO;
 import com.dh.clinica.service.PacienteService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +23,14 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
-    public PacienteDTO buscarPorId(@PathVariable Integer id){
-        return pacienteService.leerPaciente(id);
+    public ResponseEntity<PacienteDTO> buscarPorId(@PathVariable Integer id){
+        ResponseEntity<PacienteDTO> response=null;
+        if (pacienteService.leerPaciente(id) == null){
+            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }else {
+            response = ResponseEntity.ok(pacienteService.leerPaciente(id));
+        }
+        return response;
     }
 
     @PutMapping()
@@ -46,7 +53,7 @@ public class PacienteController {
         }
         else{
             pacienteService.eliminarPaciente(id);
-            response= ResponseEntity.ok("SE ELIMINÓ EL PACIENTE CON ID " + id);
+            response= ResponseEntity.ok("Se eliminó el paciente con ID: " + id);
         }
         return response;
     }

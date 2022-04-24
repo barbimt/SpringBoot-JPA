@@ -27,6 +27,7 @@ public class TurnoController {
 
     @GetMapping("/{id}")
     public TurnoDTO buscarPorId(@PathVariable Integer id){
+
         return turnoService.leerTurno(id);
     }
 
